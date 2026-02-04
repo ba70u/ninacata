@@ -8,7 +8,7 @@ export type Gender = 'Men' | 'Women' | 'Unisex';
 export interface TeaSubcategory {
   id: string;
   name: { ar: string; fr: string };
-  parentId?: string; // If set, this is a child of another tea subcategory
+  parentId?: string;
 }
 
 export interface Brand {
@@ -39,14 +39,15 @@ export interface Product {
   };
   image: string;
   inStock?: boolean;
-  // Category-specific links
+  
+  // Optional category-specific IDs
   teaSubcategoryId?: string;
   brandId?: string;
   gender?: Gender;
   householdSubcategoryId?: string;
   bakhoorSubcategoryId?: string;
   
-  // Pricing
+  // Pricing structures
   pricesByWeight?: Partial<Record<TeaWeight, number>>;
   wholesalePricePerKg?: number; 
   price?: number;

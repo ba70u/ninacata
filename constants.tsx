@@ -73,37 +73,16 @@ export const DEFAULT_PRODUCTS: Product[] = [
     pricesByWeight: { '100g': 0, '200g': 18, '500g': 45, '1kg': 0, '2kg': 0, '3kg': 0 }
   },
   {
-    id: 't-las-palmas',
-    category: 'Tea',
-    teaSubcategoryId: 'ts-shaira',
-    name: { ar: 'شاي لاس بالماس', fr: 'Thé Las Palmas' },
-    description: { ar: 'شاي لاس بالماس الأصيل، مذاق رائع.', fr: 'Thé Las Palmas authentique, goût excellent.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQG7TwCZ5zK2I71OT79cPhsKz9oIp79LHFPIjrwbGgfLZqZO95DFUHqaImH0sYeau7g2RD5jlFpGkfyPN9ZigC454Wkfme_kth_AqRfJpQ2cnkRBNr85j5FQSwibhgpUYTcJcyWp_FwfRIKPdLgfCGaRx6C-jlANOvRsNDQWHwbXKLwN9RbnWj_dtiw60/s1080/12.png',
+    id: 'p-ahlam',
+    category: 'Perfumes',
+    gender: 'Unisex',
+    brandId: 'b2',
+    name: { ar: 'احلام', fr: 'Ahlam' },
+    description: { ar: 'عطر أحلام من أرض العنبر، رائحة ساحرة للجنسين.', fr: 'Parfum Ahlam par Ard Al Amber, une fragrance envoûtante unisexe.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFftfQ4aBz-WdBae06DO-Lxc1oYenM8Rnj5lpIjq__B3l79hxl-WGE7moDaca5yNnYLBKSxSwdW35Zm0vRKc0vOhjrtGJcn_GuQomGrHZ4wJRSLz7dmaFFSbpv0Q5UQbONZfdU-3Pn05LDGuaJXUjnD4MvFJSgNwc4Ny-HWGfs-mLM1DdS15PkFDvv2oo/s320/AHLAM.png',
     inStock: true,
-    pricesByWeight: { '100g': 0, '200g': 17, '500g': 43, '1kg': 0, '2kg': 0, '3kg': 0 },
-    wholesalePricePerKg: 80
-  },
-  {
-    id: 't-tarfaya-4011',
-    category: 'Tea',
-    teaSubcategoryId: 'ts-shaira',
-    name: { ar: 'شاي طرفايا 4011', fr: 'Thé Tarfaya 4011' },
-    description: { ar: 'شاي طرفايا 4011، جودة عالية وأوزان متنوعة.', fr: 'Thé Tarfaya 4011, haute qualité et formats variés.' },
-    image: 'https://blogger.googleusercontent.com/img/a/AVvXsEhKXanvisggHuWYIMrcM_3bckW_8qlQ5N7mEs5lxYHhneZmnYe7cQGaNdRV6pmD9frzhgspCBG4QH2CGkK7mXJTx-FDTp1r8XgYJN6vPeczjQVrvrA34yYWfhyFKKRD3-1zRUeIhiNmfa3A7sNQhtGC7ZI7D_vcO0sYOCyVcRpWEf24GIEIf1DeQ-D1MJ0',
-    inStock: true,
-    pricesByWeight: { '100g': 0, '200g': 19, '500g': 48, '1kg': 95, '2kg': 140, '3kg': 0 },
-    wholesalePricePerKg: 85
-  },
-  {
-    id: 't-las-palmas-tall',
-    category: 'Tea',
-    teaSubcategoryId: 'ts-shaira',
-    name: { ar: 'شاي لاس بالماس طويل', fr: 'Thé Las Palmas Tall' },
-    description: { ar: 'شاي لاس بالماس طويل القامة، عبوات اقتصادية.', fr: 'Thé Las Palmas Tall, emballages économiques.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpM1F1aHe4rB5gP95kfn2jCcV9CPabhSK0YzKLu-NYGokzDfCh5w-fTbc8IjE1z7nv3ELkVyQSD1z7z7lG6TkyBJCgbsh6QEXq8PvXhTWtmrwli0Cv3I6qcaAH3iqM00izb07vQCGi6KLpY_lMbdYJmPKOX_65najlVZpzAghTTRJtx5sz3O873STpuFA/s1080/LAS%20PALMAS%20TALL.png',
-    inStock: true,
-    pricesByWeight: { '100g': 0, '200g': 18, '500g': 45, '1kg': 75, '2kg': 150, '3kg': 220 },
-    wholesalePricePerKg: 80
+    price: 190,
+    wholesalePrice: 120
   },
   {
     id: 'p-black-titanium',
@@ -116,98 +95,6 @@ export const DEFAULT_PRODUCTS: Product[] = [
     inStock: true,
     price: 150,
     wholesalePrice: 105
-  },
-  {
-    id: 'p-iris',
-    category: 'Perfumes',
-    gender: 'Women',
-    brandId: 'b2',
-    name: { ar: 'إيريس', fr: 'Iris' },
-    description: { ar: 'عطر إيريس، لمسة زهرية ناعمة تعكس الأنوثة الراقية.', fr: 'Parfum Iris, une touche florale douce reflétant une féminité raffinée.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_Qy462UcbAHFDn6MlW-MZuRhQuZz0iIbry5qJIAQjsilzPJjWoZvxOL7H4ZvTBZsG7-QDUFzKtqO9NB3jpv8o2AmOkkX5c1CKheXGGFHpQ0vckNRw_LCLRuDH1omLF2EPx1kMS_W0YOs0bQ2vKK9UtdlH3EWqlYJcqhoPz_YHAwqY9evhmXuKyNTwVko/s320/IRIS.png',
-    inStock: true,
-    price: 150,
-    wholesalePrice: 105
-  },
-  {
-    id: 'p-forever',
-    category: 'Perfumes',
-    gender: 'Unisex',
-    brandId: 'b2',
-    name: { ar: 'للأبد', fr: 'Forever' },
-    description: { ar: 'عطر للأبد، رائحة كلاسيكية تدوم طويلاً للجنسين.', fr: 'Parfum Forever, une fragrance classique et durable pour tous.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioVDguDUx-D6SQxNk4DpKA9YN573-lfeK5izsRtiliwQrHagslL1hshz79j_f35sQDpz7S-m8zVF2HyJEUycge8ua4I_wkW9C94Lj-pMHKp1q6ntc_f2qBgOMkOC7PYomwwH2Xa_CNpnAi68Wc9a9HnanhTSlfO-cmsTLmnIsF4vEnAh01fFero1Zrx84/s320/FOREVER.png',
-    inStock: true,
-    price: 150,
-    wholesalePrice: 105
-  },
-  {
-    id: 'p-cyrus',
-    category: 'Perfumes',
-    gender: 'Women',
-    brandId: 'b2',
-    name: { ar: 'سايروس', fr: 'Cyrus' },
-    description: { ar: 'عطر سايروس النسائي، أناقة شرقية بلمسة عصرية.', fr: 'Parfum Cyrus pour femme, élégance orientale avec une touche moderne.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKXY-PcZR9zR4dijfzDM0taXovMUlSbY04BWTIadkDbglGS3SJIsM6aK-ag4ekhUF0Ct8fxmVvIhw8htA6zEUo5RrtPS2PbFky-svLy_cKPQATLCLQbBaJ4LNC3OGy75fI7MYZZpO1VKx4Xo95S1ZC_gAzOut9n3TaPzymg7xzYR1-Cx6__Kr7vdg2G_g/s320/CYRUS.png',
-    inStock: true,
-    price: 150,
-    wholesalePrice: 105
-  },
-  {
-    id: 'p-amber',
-    category: 'Perfumes',
-    gender: 'Unisex',
-    brandId: 'b2',
-    name: { ar: 'عنبر', fr: 'Amber' },
-    description: { ar: 'عطر العنبر الأصيل، دفء وفخامة للجنسين.', fr: 'Parfum Amber authentique, chaleur et luxe pour tous.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2pEn88DqhJ8ljln9HVqVTTS6UfEEHnwDt-Yb6EtGC6opZBcW6cbPEBfMoFlF1l_MelgaPHJK7sKJvpFaN_eZ8jsXJhgxCNbNpDFRPMq0HNN4K5YryDASUU9iMuSjuEUI9ULr8PYC51fdM88ak3aCIRYbkvfTm01TIdbUnazRs7Pb6KhPcqYEN-f1p_1Y/s320/ANBAR.png',
-    inStock: true,
-    price: 150,
-    wholesalePrice: 105
-  },
-  {
-    id: 'p-al-ramz',
-    category: 'Perfumes',
-    gender: 'Women',
-    brandId: 'b2',
-    name: { ar: 'الرمز', fr: 'Al Ramz' },
-    description: { ar: 'عطر الرمز، عنوان التميز والجمال الأنثوي.', fr: 'Parfum Al Ramz, symbole de distinction et de beauté féminine.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuLziGNKwaTN6q1IiFo7muvD6vtcE1kQcT8wpob5s1we5i3j4s_gRxTmafXxUYlvuIV14Hqh5xo0r8pla-98tsqmUjSsQEJJf97_zZ1Hpv0ejHhadAQncIYe-AzQj8Un5whKT2PtpABzQXprRUHiQn5IMrbCGVaDnrnqMyJ2AK8jtja7_JnfIv4run2ng/s320/AL%20RAMZ.png',
-    inStock: true,
-    price: 150,
-    wholesalePrice: 105
-  },
-  {
-    id: 't-al-wali-noir',
-    category: 'Tea',
-    teaSubcategoryId: 'ts-shaira',
-    name: { ar: 'شاي الوالي اسود', fr: 'Thé Al Wali Noir' },
-    description: { ar: 'شاي الوالي اسود، نكهة قوية ومميزة.', fr: 'Thé Al Wali Noir, saveur forte et distinctive.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7ltHZYEEvya6BCKIiKGoosmkb2NIXotZD3Y1vvjrBO7T5F2x4Bs6BUExr7Ye1plnVpXjNUnmU6GfQNy6P3DDYZRtcwdHf6BaPbFFdrBo5wr24ZKcHZRqyFaFYjH7IlO2XWrbqdXsK9XrC25xRstw1YzyAFbXtmPsBefHvGW1LkBpz06szcrV1aEn3Tis/s320/AL%20WALI%20BLACK.png',
-    inStock: true,
-    pricesByWeight: { '100g': 0, '200g': 20, '500g': 50, '1kg': 0, '2kg': 0, '3kg': 0 }
-  },
-  {
-    id: 't-al-wali-gold',
-    category: 'Tea',
-    teaSubcategoryId: 'ts-shaira',
-    name: { ar: 'شاي الوالي ذهبي', fr: 'Thé Al Wali Gold' },
-    description: { ar: 'شاي الوالي ذهبي، أعلى مستويات الجودة.', fr: 'Thé Al Wali Gold, le plus haut niveau de qualité.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEheNee5tmqldA5SyNHgO8IvDQBbygzJwwoa7I0SOsoq8vvC7C975uyTns-vY0YY2gc-q5U0d9emiO4WuRTyhahcKqR9zCJ051AoEPtYlCUljW0YsJXxlNRnRVSQMTwjtoMJXm_XMx87luAtGbmRN89z0UUml-BCtRg8XBGhKGIqlfn6Oq0OGA6wFpZ_KPI/s320/AL%20WALI.png',
-    inStock: true,
-    pricesByWeight: { '100g': 0, '200g': 22, '500g': 60, '1kg': 0, '2kg': 0, '3kg': 0 },
-    wholesalePricePerKg: 100
-  },
-  {
-    id: 't2',
-    category: 'Tea',
-    teaSubcategoryId: 'ts-mkarkab',
-    name: { ar: 'شاي مكركب الأصيل', fr: 'Thé Mkarkab Authentique' },
-    description: { ar: 'شاي مكركب بجودة عالية ونكهة قوية.', fr: 'Thé Mkarkab de haute qualité avec une saveur forte.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2lcpQMAcjpeBgPx53K_p2aUP29_Z7XOk0su7oM4nNSByEMfpFR_DxfIXQkNVUu-9NxP2dxobM0ZuvqGm_yur5HcRVOq0dZzoM_v9tSXXgQaw8nMTKp3yV8k604b5y7ueTW4ql5Flc4hinxj94np-3-PqfO0GAvKcAqSBGZcq2O08K0VVrg06TSaTdxW4/w400-h400/WhatsApp%20Image%202026-02-02%20at%202.17.44%20PM.jpeg',
-    inStock: true,
-    pricesByWeight: { '100g': 35, '200g': 65, '500g': 140, '1kg': 260, '2kg': 500, '3kg': 0 },
-    wholesalePricePerKg: 220
   }
 ];
 

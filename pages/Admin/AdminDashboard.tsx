@@ -224,18 +224,18 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-1">
                         <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('الاسم بالعربية', 'Nom Arabe')}</label>
-                        <input value={editingProduct.name?.ar} onChange={e => setEditingProduct({...editingProduct, name: {...editingProduct.name!, ar: e.target.value}})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary focus:bg-white transition-all" required />
+                        <input value={editingProduct.name?.ar || ''} onChange={e => setEditingProduct({...editingProduct, name: {...(editingProduct.name || {ar: '', fr: ''}), ar: e.target.value}})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary focus:bg-white transition-all" required />
                       </div>
                       <div className="space-y-1">
                         <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('الاسم بالفرنسية', 'Nom Français')}</label>
-                        <input value={editingProduct.name?.fr} onChange={e => setEditingProduct({...editingProduct, name: {...editingProduct.name!, fr: e.target.value}})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary focus:bg-white transition-all" required />
+                        <input value={editingProduct.name?.fr || ''} onChange={e => setEditingProduct({...editingProduct, name: {...(editingProduct.name || {ar: '', fr: ''}), fr: e.target.value}})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary focus:bg-white transition-all" required />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-1">
                         <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('القسم', 'Catégorie')}</label>
-                        <select value={editingProduct.category} onChange={e => setEditingProduct({...editingProduct, category: e.target.value as Category})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary">
+                        <select value={editingProduct.category || 'Tea'} onChange={e => setEditingProduct({...editingProduct, category: e.target.value as Category})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary">
                           <option value="Tea">Tea (Thé)</option>
                           <option value="Perfumes">Perfumes (Parfums)</option>
                           <option value="Bakhoor">Bakhoor</option>
@@ -244,7 +244,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       </div>
                       <div className="space-y-1">
                         <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('رابط الصورة', 'Lien Image')}</label>
-                        <input value={editingProduct.image} onChange={e => setEditingProduct({...editingProduct, image: e.target.value})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary" required />
+                        <input value={editingProduct.image || ''} onChange={e => setEditingProduct({...editingProduct, image: e.target.value})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary" required />
                       </div>
                     </div>
 
@@ -321,7 +321,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                             {weights.map(w => (
                               <div key={w}>
                                 <label className="text-[10px] text-gray-400 font-bold block mb-1 text-center">{w}</label>
-                                <input type="number" value={editingProduct.pricesByWeight?.[w] || ''} onChange={e => setEditingProduct({...editingProduct, pricesByWeight: { ...(editingProduct.pricesByWeight || {}), [w]: Number(e.target.value) } as any})} className="w-full rounded-xl border-white bg-white text-center font-bold text-sm p-3 focus:ring-primary shadow-sm" />
+                                <input type="number" value={editingProduct.pricesByWeight?.[w] || ''} onChange={e => setEditingProduct({...editingProduct, pricesByWeight: { ...(editingProduct.pricesByWeight || {}), [w]: Number(e.target.value) } })} className="w-full rounded-xl border-white bg-white text-center font-bold text-sm p-3 focus:ring-primary shadow-sm" />
                               </div>
                             ))}
                           </div>
