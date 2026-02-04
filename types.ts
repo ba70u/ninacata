@@ -38,7 +38,7 @@ export interface Product {
     fr: string;
   };
   image: string;
-  inStock: boolean;
+  inStock?: boolean;
   // Category-specific links
   teaSubcategoryId?: string;
   brandId?: string;
@@ -47,7 +47,7 @@ export interface Product {
   bakhoorSubcategoryId?: string;
   
   // Pricing
-  pricesByWeight?: Record<TeaWeight, number>;
+  pricesByWeight?: Partial<Record<TeaWeight, number>>;
   wholesalePricePerKg?: number; 
   price?: number;
   wholesalePrice?: number;

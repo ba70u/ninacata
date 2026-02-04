@@ -220,7 +220,7 @@ export const DEFAULT_PRODUCTS: Product[] = [
     brandId: 'b2',
     name: { ar: 'إيريس', fr: 'Iris' },
     description: { ar: 'عطر إيريس، لمسة زهرية ناعمة تعكس الأنوثة الراقية.', fr: 'Parfum Iris, une touche florale douce reflétant une féminité raffinée.' },
-    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_Qy462UcbAHFDn6MlW-MZuRhQuZz0iIbry5qJIAQjsilzPJjWoZvxOLqH4ZvTBZsG7-QDUFzKtqO9NB3jpv8o2AmOkkX5c1CKheXGGFHpQ0vckNRw_LCLRuDH1omLF2EPx1kMS_W0YOs0bQ2vKK9UtdlH3EWqlYJcqhoPz_YHAwqY9evhmXuKyNTwVko/s320/IRIS.png',
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_Qy462UcbAHFDn6MlW-MZuRhQuZz0iIbry5qJIAQjsilzPJjWoZvxOL7H4ZvTBZsG7-QDUFzKtqO9NB3jpv8o2AmOkkX5c1CKheXGGFHpQ0vckNRw_LCLRuDH1omLF2EPx1kMS_W0YOs0bQ2vKK9UtdlH3EWqlYJcqhoPz_YHAwqY9evhmXuKyNTwVko/s320/IRIS.png',
     inStock: true,
     price: 150,
     wholesalePrice: 105
