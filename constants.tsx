@@ -10,9 +10,10 @@ export const DEFAULT_TEA_SUBCATS: TeaSubcategory[] = [
 ];
 
 export const DEFAULT_BRANDS: Brand[] = [
-  { id: 'b1', name: { ar: 'الرصاصي', fr: 'Rasasi' } },
-  { id: 'b2', name: { ar: 'أجمل', fr: 'Ajmal' } },
-  { id: 'b3', name: { ar: 'عبد الصمد القرشي', fr: 'ASQ' } }
+  { id: 'b1', name: { ar: 'لطافة', fr: 'Lattafa' } },
+  { id: 'b2', name: { ar: 'أرض العنبر', fr: 'Ard Al Amber' } },
+  { id: 'b3', name: { ar: 'أرض الزعفران', fr: 'Ard Al Zaafaran' } },
+  { id: 'b4', name: { ar: 'عطور نينا', fr: 'Nina Perfumes' } }
 ];
 
 export const DEFAULT_HOUSEHOLD_SUBCATS: HouseholdSubcategory[] = [
@@ -103,6 +104,174 @@ export const DEFAULT_PRODUCTS: Product[] = [
     inStock: true,
     pricesByWeight: { '100g': 0, '200g': 18, '500g': 45, '1kg': 75, '2kg': 150, '3kg': 220 },
     wholesalePricePerKg: 80
+  },
+  {
+    id: 'p-ahlam',
+    category: 'Perfumes',
+    gender: 'Unisex',
+    brandId: 'b2',
+    name: { ar: 'احلام', fr: 'Ahlam' },
+    description: { ar: 'عطر أحلام من أرض العنبر، رائحة ساحرة للجنسين.', fr: 'Parfum Ahlam par Ard Al Amber, une fragrance envoûtante unisexe.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFftfQ4aBz-WdBae06DO-Lxc1oYenM8Rnj5lpIjq__B3l79hxl-WGE7moDaca5yNnYLBKSxSwdW35Zm0vRKc0vOhjrtGJcn_GuQomGrHZ4wJRSLz7dmaFFSbpv0Q5UQbONZfdU-3Pn05LDGuaJXUjnD4MvFJSgNwc4Ny-HWGfs-mLM1DdS15PkFDvv2oo/s320/AHLAM.png',
+    inStock: true,
+    price: 190,
+    wholesalePrice: 120
+  },
+  {
+    id: 'p-cheers',
+    category: 'Perfumes',
+    gender: 'Men',
+    brandId: 'b2',
+    name: { ar: 'تشيرز', fr: 'Cheers' },
+    description: { ar: 'عطر تشيرز من أرض العنبر، لمسة رجالية قوية.', fr: 'Parfum Cheers par Ard Al Amber, une touche masculine puissante.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhc3WJI0HUUNauTN-DH-AVwy4Fv5a9pdxDDQ36NDeOlmt_Ir_kiit0PfpwFf0hv9Yft1nj-Gid4NpJmGG9Yp8pURyf5bUEq8wbSnYd8AQfJFku08qU8pQw0bHGvH-MpW-XKG9watNEh5ihNhx71c4E_laD2A8COri2hK5oh1m6rHBud345kpBKuJvzu_F4/s320/cheeres.png',
+    inStock: true,
+    price: 190,
+    wholesalePrice: 120
+  },
+  {
+    id: 'p-farah',
+    category: 'Perfumes',
+    gender: 'Women',
+    brandId: 'b2',
+    name: { ar: 'فرح', fr: 'Farah' },
+    description: { ar: 'عطر فرح من أرض العنبر، أناقة نسائية لا تقاوم.', fr: 'Parfum Farah par Ard Al Amber, une élégance féminine irrésistible.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh8wSbYS2dbHTKzApE-d3Nxx4MuObCRFpiBBt1fr7w6MZxcYxHZgxTu2Arp-nlIUHDpTpZQeIxpWvP_7m2dR2NTkmkfc8gUawuxOvvCFbog4vjuj1b6domBpjconbon03i_-sYEZVKAvXWohGN8iQXxa9RPE0ll6kMc7DoFlyvvDk6srTpEzvvXia1eGeI/s320/FARAH.png',
+    inStock: true,
+    price: 190,
+    wholesalePrice: 120
+  },
+  {
+    id: 'p-hamsa',
+    category: 'Perfumes',
+    gender: 'Unisex',
+    brandId: 'b2',
+    name: { ar: 'همسة', fr: 'Hamsa' },
+    description: { ar: 'عطر همسة من أرض العنبر، نغمات عطرية هادئة.', fr: 'Parfum Hamsa par Ard Al Amber, des notes parfumées apaisantes.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjlPt-T3WN6oDyfisFJ0726D7_I0XmjnfHwnBy2nz2E7yRIPDSrIk1ToR61QHWmdQJ677bErA77bWpyz1E0Y1hxEMHfzGFI1PmrafsqgKKIFsJpx0e7b3i_uzGQkINxia3DmI76WLKizMi4avklpY6T5akVA317Mz59IfJLn7GURHoFKCjwlNzyOT6MEY/s320/HAMSA.png',
+    inStock: true,
+    price: 190,
+    wholesalePrice: 120
+  },
+  {
+    id: 'p-hekaya',
+    category: 'Perfumes',
+    gender: 'Women',
+    brandId: 'b2',
+    name: { ar: 'حكاية', fr: 'Hekaya' },
+    description: { ar: 'عطر حكاية من أرض العنبر، يروي قصة الجمال.', fr: 'Parfum Hekaya par Ard Al Amber, racontant une histoire de beauté.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj-IgUQCPZ46gjXT95caxNCt_L3UomMRBIs3VJexAf5TkBsUpfkprxdgg3ZbvcviQQXrslX_Dsr7J4kmq-zmBJFlnLEXjr4y-YBchb1CIureiJ6F2PzLH1PcUoebDiopn08Mn21mmDSoz0t5pEsvxuIPhJjh0Z1z_uu4RpGnQEyyNDWvAEw9NQ6dJ6G27Q/s320/Hekaya.png',
+    inStock: true,
+    price: 190,
+    wholesalePrice: 120
+  },
+  {
+    id: 'p-khayal',
+    category: 'Perfumes',
+    gender: 'Unisex',
+    brandId: 'b2',
+    name: { ar: 'خيال', fr: 'Khayal' },
+    description: { ar: 'عطر خيال من أرض العنبر، عالم من الأحلام.', fr: 'Parfum Khayal par Ard Al Amber, un monde de rêves.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgB2UyzW2IckhAvEDjIAPfCFAuIOKhQifa8MWmLYM5w9VtBdJ5b_YHZ3UxY6VXPSifA9QFg7uSwFGatLfg57ambtUyEKo_hFbL11WyTCkUA9q8QvufCRuXO6K1AL-Y45Fg8uArT1Ht4628rR1qfZmjxuEmHHjeaZbxsiMMzgd-HvdANRqiO2PJ3Zm0AgGM/s320/khayal.png',
+    inStock: true,
+    price: 190,
+    wholesalePrice: 120
+  },
+  {
+    id: 'p-rawaa',
+    category: 'Perfumes',
+    gender: 'Women',
+    brandId: 'b2',
+    name: { ar: 'روعة', fr: 'Rawaa' },
+    description: { ar: 'عطر روعة من أرض العنبر، قمة الرقي النسائي.', fr: 'Parfum Rawaa par Ard Al Amber, le summum de la sophistication féminine.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgnImS2pP8cMpKX7y4PFJjQZeZjqoVVVnRUjuM3HZ9FLYFQyLOL3wl9lKWyXA3FIcqxm4kjvEeVAIv3uKgNKjH39ydlVQKhxYHOK9wMdMhCtuJUyFTzYUot97c5QMaZUvW5o2h55a0hx-iTW75oUZJffI0c5jJ9TuP1YOMPoYepJWfpkSM4ZK515lqmuSE/s320/RAWAA.png',
+    inStock: true,
+    price: 190,
+    wholesalePrice: 120
+  },
+  {
+    id: 'p-sokoun',
+    category: 'Perfumes',
+    gender: 'Men',
+    brandId: 'b2',
+    name: { ar: 'سكون', fr: 'Sokoun' },
+    description: { ar: 'عطر سكون من أرض العنبر، هدوء وجاذبية للرجل.', fr: 'Parfum Sokoun par Ard Al Amber, calme et charisme pour l\'homme.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1_XkfHtKw86fDAB_CkVXpZGqw0vRAmFjiswnlafEJLbEHsXxyqtzFrzwzxL2ncAhh2bIDEebR59U4L4qK_DX61KHHRU77XFwUWOsCVDB8Im9Rs8Z0KJotvFvauPuvO5Jy9-WecHXi3PInrTEvGZ-YRYe3zGSrqL4BoURAE3SB5pTEqJ_KigmUZoZ3nOY/s320/SOUKOUN.png',
+    inStock: true,
+    price: 190,
+    wholesalePrice: 120
+  },
+  {
+    id: 'p-black-titanium',
+    category: 'Perfumes',
+    gender: 'Men',
+    brandId: 'b2',
+    name: { ar: 'تيتانيوم', fr: 'Black Titanium' },
+    description: { ar: 'عطر تيتانيوم الأسود، قوة وجاذبية رجالية لا تضاهى.', fr: 'Parfum Black Titanium, force et charisme masculin inégalés.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEir_gDJoIs7vRRIzfXBClOJit1XVUHjpRUCmfbXDbpld2CMJDErRBO706zW5oYIuV-hLhxodepByXLCTK_1Hn2lurDr3rtoaPeXXB7O3g4wqT8KCryWXYVzMQm1R01YQz4BwUYq4qLHoa2dKGqz3FiOV9VpyxpiQPDz0rmbyBt4EsTctGSZwnaiQ__c8hc/s320/TETANIUM.png',
+    inStock: true,
+    price: 150,
+    wholesalePrice: 105
+  },
+  {
+    id: 'p-iris',
+    category: 'Perfumes',
+    gender: 'Women',
+    brandId: 'b2',
+    name: { ar: 'إيريس', fr: 'Iris' },
+    description: { ar: 'عطر إيريس، لمسة زهرية ناعمة تعكس الأنوثة الراقية.', fr: 'Parfum Iris, une touche florale douce reflétant une féminité raffinée.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh_Qy462UcbAHFDn6MlW-MZuRhQuZz0iIbry5qJIAQjsilzPJjWoZvxOLqH4ZvTBZsG7-QDUFzKtqO9NB3jpv8o2AmOkkX5c1CKheXGGFHpQ0vckNRw_LCLRuDH1omLF2EPx1kMS_W0YOs0bQ2vKK9UtdlH3EWqlYJcqhoPz_YHAwqY9evhmXuKyNTwVko/s320/IRIS.png',
+    inStock: true,
+    price: 150,
+    wholesalePrice: 105
+  },
+  {
+    id: 'p-forever',
+    category: 'Perfumes',
+    gender: 'Unisex',
+    brandId: 'b2',
+    name: { ar: 'للأبد', fr: 'Forever' },
+    description: { ar: 'عطر للأبد، رائحة كلاسيكية تدوم طويلاً للجنسين.', fr: 'Parfum Forever, une fragrance classique et durable pour tous.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEioVDguDUx-D6SQxNk4DpKA9YN573-lfeK5izsRtiliwQrHagslL1hshz79j_f35sQDpz7S-m8zVF2HyJEUycge8ua4I_wkW9C94Lj-pMHKp1q6ntc_f2qBgOMkOC7PYomwwH2Xa_CNpnAi68Wc9a9HnanhTSlfO-cmsTLmnIsF4vEnAh01fFero1Zrx84/s320/FOREVER.png',
+    inStock: true,
+    price: 150,
+    wholesalePrice: 105
+  },
+  {
+    id: 'p-cyrus',
+    category: 'Perfumes',
+    gender: 'Women',
+    brandId: 'b2',
+    name: { ar: 'سايروس', fr: 'Cyrus' },
+    description: { ar: 'عطر سايروس النسائي، أناقة شرقية بلمسة عصرية.', fr: 'Parfum Cyrus pour femme, élégance orientale avec une touche moderne.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjKXY-PcZR9zR4dijfzDM0taXovMUlSbY04BWTIadkDbglGS3SJIsM6aK-ag4ekhUF0Ct8fxmVvIhw8htA6zEUo5RrtPS2PbFky-svLy_cKPQATLCLQbBaJ4LNC3OGy75fI7MYZZpO1VKx4Xo95S1ZC_gAzOut9n3TaPzymg7xzYR1-Cx6__Kr7vdg2G_g/s320/CYRUS.png',
+    inStock: true,
+    price: 150,
+    wholesalePrice: 105
+  },
+  {
+    id: 'p-amber',
+    category: 'Perfumes',
+    gender: 'Unisex',
+    brandId: 'b2',
+    name: { ar: 'عنبر', fr: 'Amber' },
+    description: { ar: 'عطر العنبر الأصيل، دفء وفخامة للجنسين.', fr: 'Parfum Amber authentique, chaleur et luxe pour tous.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi2pEn88DqhJ8ljln9HVqVTTS6UfEEHnwDt-Yb6EtGC6opZBcW6cbPEBfMoFlF1l_MelgaPHJK7sKJvpFaN_eZ8jsXJhgxCNbNpDFRPMq0HNN4K5YryDASUU9iMuSjuEUI9ULr8PYC51fdM88ak3aCIRYbkvfTm01TIdbUnazRs7Pb6KhPcqYEN-f1p_1Y/s320/ANBAR.png',
+    inStock: true,
+    price: 150,
+    wholesalePrice: 105
+  },
+  {
+    id: 'p-al-ramz',
+    category: 'Perfumes',
+    gender: 'Women',
+    brandId: 'b2',
+    name: { ar: 'الرمز', fr: 'Al Ramz' },
+    description: { ar: 'عطر الرمز، عنوان التميز والجمال الأنثوي.', fr: 'Parfum Al Ramz, symbole de distinction et de beauté féminine.' },
+    image: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiuLziGNKwaTN6q1IiFo7muvD6vtcE1kQcT8wpob5s1we5i3j4s_gRxTmafXxUYlvuIV14Hqh5xo0r8pla-98tsqmUjSsQEJJf97_zZ1Hpv0ejHhadAQncIYe-AzQj8Un5whKT2PtpABzQXprRUHiQn5IMrbCGVaDnrnqMyJ2AK8jtja7_JnfIv4run2ng/s320/AL%20RAMZ.png',
+    inStock: true,
+    price: 150,
+    wholesalePrice: 105
   },
   {
     id: 't-bait-al-fakhama',
@@ -465,7 +634,7 @@ export const DEFAULT_PAGE_CONTENT: PageContent = {
     heroSubtitle: { ar: 'خبرة 33 سنة في أجود أنواع الشاي، العطور الشرقية، والبخور.', fr: '33 ans d\'expertise dans le thé, les parfums orientaux et le bakhoor.' },
     heroImage: 'https://images.unsplash.com/photo-1509316785289-025f5b846b35?q=80&w=2000&auto=format&fit=crop',
     featuredTeaTitle: { ar: 'أجود أنواع الشاي الصحراوي', fr: 'Le meilleur du thé saharien' },
-    featuredTeaDesc: { ar: 'نحن نوفر لك تجربة فريدة مع الشاي الصحراوي الأصيل، المنقى بعناية فائقة لضمان النكهة والجودة التي تستحقها.', fr: 'Nous vous offrons une expérience unique avec le thé saharien authentique, purifié with the plus grand soin.' },
+    featuredTeaDesc: { ar: 'نحن نوفر لك تجربة فريدة مع الشاي الصحراوي الأصيل، المنقى بعناية فائقة لضمان النكهة والجودة التي تستحقها.', fr: 'Nous vous offrons une expérience unique with the thé saharien authentique, purifié with the plus grand soin.' },
     featuredTeaImage: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj2lcpQMAcjpeBgPx53K_p2aUP29_Z7XOk0su7oM4nNSByEMfpFR_DxfIXQkNVUu-9NxP2dxobM0ZuvqGm_yur5HcRVOq0dZzoM_v9tSXXgQaw8nMTKp3yV8k604b5y7ueTW4ql5Flc4hinxj94np-3-PqfO0GAvKcAqSBGZcq2O08K0VVrg06TSaTdxW4/w400-h400/WhatsApp%20Image%202026-02-02%20at%202.17.44%20PM.jpeg',
     featuredHousTitle: { ar: 'أطقم شاي ومباخر ملكية', fr: 'Théières et encensoirs royaux' },
     featuredHousDesc: { ar: 'أكمل تجربة الشاي الصحراوي الخاص بك مع تشكيلتنا الواسعة من الأواني والأباريق المزخرفة يدوياً.', fr: 'Complétez votre expérience du thé saharien avec notre large sélection d\'ustensiles décorés à la main.' },
