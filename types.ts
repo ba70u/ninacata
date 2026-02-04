@@ -38,16 +38,15 @@ export interface Product {
     fr: string;
   };
   image: string;
-  inStock?: boolean;
-  
-  // Optional category-specific IDs
+  inStock: boolean;
+  // Category-specific links
   teaSubcategoryId?: string;
   brandId?: string;
   gender?: Gender;
   householdSubcategoryId?: string;
   bakhoorSubcategoryId?: string;
   
-  // Pricing structures
+  // Pricing
   pricesByWeight?: Partial<Record<TeaWeight, number>>;
   wholesalePricePerKg?: number; 
   price?: number;

@@ -40,9 +40,13 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
     if (!editingProduct) return;
 
     if (editingProduct.id) {
-      setProducts(prev => prev.map(p => p.id === editingProduct.id ? editingProduct as Product : p));
+      setProducts(prev => prev.map(p => p.id === editingProduct.id ? { ...p, ...editingProduct } as Product : p));
     } else {
-      const newProduct = { ...editingProduct, id: `p-${Date.now()}` } as Product;
+      const newProduct = { 
+        ...editingProduct, 
+        id: `p-${Date.now()}`, 
+        inStock: editingProduct.inStock ?? true 
+      } as Product;
       setProducts(prev => [...prev, newProduct]);
     }
     setEditingProduct(null);
@@ -176,7 +180,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
               </button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredProducts.map(p => (
                 <div key={p.id} className="bg-white p-6 rounded-3xl shadow-sm border border-gray-100 flex items-center gap-5 hover:shadow-md transition-shadow group">
                   <div className="size-20 rounded-2xl overflow-hidden bg-gray-50 flex-shrink-0">
@@ -224,18 +228,18 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-1">
                         <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('الاسم بالعربية', 'Nom Arabe')}</label>
-                        <input value={editingProduct.name?.ar || ''} onChange={e => setEditingProduct({...editingProduct, name: {...(editingProduct.name || {ar: '', fr: ''}), ar: e.target.value}})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary focus:bg-white transition-all" required />
+                        <input value={editingProduct.name?.ar ?? ''} onChange={e => setEditingProduct(prev => prev ? {...prev, name: {...(prev.name ?? {ar: '', fr: ''}), ar: e.target.value}} : null)} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary focus:bg-white transition-all" required />
                       </div>
                       <div className="space-y-1">
                         <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('الاسم بالفرنسية', 'Nom Français')}</label>
-                        <input value={editingProduct.name?.fr || ''} onChange={e => setEditingProduct({...editingProduct, name: {...(editingProduct.name || {ar: '', fr: ''}), fr: e.target.value}})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary focus:bg-white transition-all" required />
+                        <input value={editingProduct.name?.fr ?? ''} onChange={e => setEditingProduct(prev => prev ? {...prev, name: {...(prev.name ?? {ar: '', fr: ''}), fr: e.target.value}} : null)} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary focus:bg-white transition-all" required />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="space-y-1">
                         <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('القسم', 'Catégorie')}</label>
-                        <select value={editingProduct.category || 'Tea'} onChange={e => setEditingProduct({...editingProduct, category: e.target.value as Category})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary">
+                        <select value={editingProduct.category ?? 'Tea'} onChange={e => setEditingProduct(prev => prev ? {...prev, category: e.target.value as Category} : null)} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary">
                           <option value="Tea">Tea (Thé)</option>
                           <option value="Perfumes">Perfumes (Parfums)</option>
                           <option value="Bakhoor">Bakhoor</option>
@@ -244,7 +248,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       </div>
                       <div className="space-y-1">
                         <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('رابط الصورة', 'Lien Image')}</label>
-                        <input value={editingProduct.image || ''} onChange={e => setEditingProduct({...editingProduct, image: e.target.value})} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary" required />
+                        <input value={editingProduct.image ?? ''} onChange={e => setEditingProduct(prev => prev ? {...prev, image: e.target.value} : null)} className="w-full rounded-2xl border-gray-100 bg-gray-50 px-4 py-3 focus:ring-primary" required />
                       </div>
                     </div>
 
@@ -257,7 +261,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       {editingProduct.category === 'Tea' && (
                         <div className="space-y-1">
                           <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('نوع الشاي', 'Type de Thé')}</label>
-                          <select value={editingProduct.teaSubcategoryId || ''} onChange={e => setEditingProduct({...editingProduct, teaSubcategoryId: e.target.value})} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
+                          <select value={editingProduct.teaSubcategoryId || ''} onChange={e => setEditingProduct(prev => prev ? {...prev, teaSubcategoryId: e.target.value} : null)} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
                             <option value="">---</option>
                             {teaDropdownOptions.map(opt => <option key={opt.id} value={opt.id}>{opt.label}</option>)}
                           </select>
@@ -268,7 +272,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                           <div className="space-y-1">
                             <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('الجنس', 'Genre')}</label>
-                            <select value={editingProduct.gender || ''} onChange={e => setEditingProduct({...editingProduct, gender: e.target.value as Gender})} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
+                            <select value={editingProduct.gender || ''} onChange={e => setEditingProduct(prev => prev ? {...prev, gender: e.target.value as Gender} : null)} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
                               <option value="">---</option>
                               <option value="Men">{t('رجالي', 'Homme')}</option>
                               <option value="Women">{t('نسائي', 'Femme')}</option>
@@ -277,7 +281,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                           </div>
                           <div className="space-y-1">
                             <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('الماركة', 'Marque')}</label>
-                            <select value={editingProduct.brandId || ''} onChange={e => setEditingProduct({...editingProduct, brandId: e.target.value})} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
+                            <select value={editingProduct.brandId || ''} onChange={e => setEditingProduct(prev => prev ? {...prev, brandId: e.target.value} : null)} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
                               <option value="">---</option>
                               {brands.map(b => <option key={b.id} value={b.id}>{t(b.name.ar, b.name.fr)}</option>)}
                             </select>
@@ -288,7 +292,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       {editingProduct.category === 'Bakhoor' && (
                         <div className="space-y-1">
                           <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('نوع البخور', 'Type de Bakhoor')}</label>
-                          <select value={editingProduct.bakhoorSubcategoryId || ''} onChange={e => setEditingProduct({...editingProduct, bakhoorSubcategoryId: e.target.value})} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
+                          <select value={editingProduct.bakhoorSubcategoryId || ''} onChange={e => setEditingProduct(prev => prev ? {...prev, bakhoorSubcategoryId: e.target.value} : null)} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
                             <option value="">---</option>
                             {bakhoorSubcategories.map(bk => <option key={bk.id} value={bk.id}>{t(bk.name.ar, bk.name.fr)}</option>)}
                           </select>
@@ -298,7 +302,7 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                       {editingProduct.category === 'Household' && (
                         <div className="space-y-1">
                           <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('نوع الأواني', 'Type de Vaisselle')}</label>
-                          <select value={editingProduct.householdSubcategoryId || ''} onChange={e => setEditingProduct({...editingProduct, householdSubcategoryId: e.target.value})} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
+                          <select value={editingProduct.householdSubcategoryId || ''} onChange={e => setEditingProduct(prev => prev ? {...prev, householdSubcategoryId: e.target.value} : null)} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm">
                             <option value="">---</option>
                             {householdSubcategories.map(h => <option key={h.id} value={h.id}>{t(h.name.ar, h.name.fr)}</option>)}
                           </select>
@@ -315,13 +319,13 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         <div className="space-y-6">
                           <div className="space-y-1">
                              <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('سعر الجملة للكيلو', 'Prix Gros / KG')}</label>
-                             <input type="number" value={editingProduct.wholesalePricePerKg || ''} onChange={e => setEditingProduct({...editingProduct, wholesalePricePerKg: Number(e.target.value)})} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm" />
+                             <input type="number" value={editingProduct.wholesalePricePerKg ?? ''} onChange={e => setEditingProduct(prev => prev ? {...prev, wholesalePricePerKg: Number(e.target.value)} : null)} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm" />
                           </div>
                           <div className="grid grid-cols-3 sm:grid-cols-6 gap-3">
                             {weights.map(w => (
                               <div key={w}>
                                 <label className="text-[10px] text-gray-400 font-bold block mb-1 text-center">{w}</label>
-                                <input type="number" value={editingProduct.pricesByWeight?.[w] || ''} onChange={e => setEditingProduct({...editingProduct, pricesByWeight: { ...(editingProduct.pricesByWeight || {}), [w]: Number(e.target.value) } })} className="w-full rounded-xl border-white bg-white text-center font-bold text-sm p-3 focus:ring-primary shadow-sm" />
+                                <input type="number" value={editingProduct.pricesByWeight?.[w] ?? ''} onChange={e => setEditingProduct(prev => prev ? {...prev, pricesByWeight: { ...(prev.pricesByWeight ?? {}), [w]: Number(e.target.value) } } : null)} className="w-full rounded-xl border-white bg-white text-center font-bold text-sm p-3 focus:ring-primary shadow-sm" />
                               </div>
                             ))}
                           </div>
@@ -330,11 +334,11 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                           <div className="space-y-1">
                             <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('سعر التقسيط (DH)', 'Prix Détail')}</label>
-                            <input type="number" value={editingProduct.price || ''} onChange={e => setEditingProduct({...editingProduct, price: Number(e.target.value)})} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm" />
+                            <input type="number" value={editingProduct.price ?? ''} onChange={e => setEditingProduct(prev => prev ? {...prev, price: Number(e.target.value)} : null)} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm" />
                           </div>
                           <div className="space-y-1">
                             <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('سعر الجملة (DH)', 'Prix Gros')}</label>
-                            <input type="number" value={editingProduct.wholesalePrice || ''} onChange={e => setEditingProduct({...editingProduct, wholesalePrice: Number(e.target.value)})} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm" />
+                            <input type="number" value={editingProduct.wholesalePrice ?? ''} onChange={e => setEditingProduct(prev => prev ? {...prev, wholesalePrice: Number(e.target.value)} : null)} className="w-full rounded-2xl border-white bg-white px-4 py-3 focus:ring-primary shadow-sm" />
                           </div>
                         </div>
                       )}
@@ -395,63 +399,6 @@ const AdminDashboard: React.FC<AdminDashboardProps> = ({
                   </button>
                 </div>
               </div>
-            </div>
-          </div>
-        )}
-
-        {activeTab === 'content' && (
-          <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100 animate-in fade-in duration-500">
-             <h2 className="text-xl font-bold text-secondary mb-8">{t('تعديل محتوى الصفحات', 'Contenu des Pages')}</h2>
-             <div className="space-y-10">
-               <div className="space-y-6">
-                 <h3 className="font-bold text-primary text-xs uppercase tracking-widest">{t('الصفحة الرئيسية - واجهة العرض', 'Accueil - Hero')}</h3>
-                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                   <div className="space-y-1">
-                     <label className="text-[10px] font-bold text-gray-400">{t('العنوان الرئيسي (عربي)', 'Titre (Ar)')}</label>
-                     <input value={pageContent.home.heroTitle.ar} onChange={e => setPageContent({...pageContent, home: {...pageContent.home, heroTitle: {...pageContent.home.heroTitle, ar: e.target.value}}})} className="w-full p-4 bg-gray-50 rounded-2xl border-gray-100" />
-                   </div>
-                   <div className="space-y-1">
-                     <label className="text-[10px] font-bold text-gray-400">{t('العنوان الرئيسي (فرنسي)', 'Titre (Fr)')}</label>
-                     <input value={pageContent.home.heroTitle.fr} onChange={e => setPageContent({...pageContent, home: {...pageContent.home, heroTitle: {...pageContent.home.heroTitle, fr: e.target.value}}})} className="w-full p-4 bg-gray-50 rounded-2xl border-gray-100" />
-                   </div>
-                 </div>
-               </div>
-               <div className="pt-10 border-t border-gray-100">
-                 <h3 className="font-bold text-primary text-xs uppercase tracking-widest mb-6">{t('صفحة من نحن', 'À Propos')}</h3>
-                 <div className="space-y-4">
-                   <label className="text-[10px] font-bold text-gray-400">{t('النص التعريفي (عربي)', 'Texte (Ar)')}</label>
-                   <textarea rows={4} value={pageContent.about.body.ar} onChange={e => setPageContent({...pageContent, about: {...pageContent.about, body: {...pageContent.about.body, ar: e.target.value}}})} className="w-full p-6 bg-gray-50 rounded-3xl border-gray-100" />
-                 </div>
-               </div>
-             </div>
-          </div>
-        )}
-
-        {activeTab === 'settings' && (
-          <div className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-gray-100 animate-in fade-in duration-500">
-            <h2 className="text-xl font-bold text-secondary mb-8">{t('إعدادات المتجر', 'Paramètres Globaux')}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-               <div className="space-y-6">
-                 <div className="space-y-1">
-                   <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('رقم الواتساب', 'Numéro WhatsApp')}</label>
-                   <input value={config.whatsappNumber} onChange={e => setConfig({...config, whatsappNumber: e.target.value})} className="w-full p-4 bg-gray-50 rounded-2xl border-gray-100" />
-                   <p className="text-[10px] text-gray-400">Ex: 212661811890</p>
-                 </div>
-                 <div className="space-y-1">
-                   <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('اسم المتجر', 'Nom du Store')}</label>
-                   <input value={config.branding.logo} onChange={e => setConfig({...config, branding: {...config.branding, logo: e.target.value}})} className="w-full p-4 bg-gray-50 rounded-2xl border-gray-100" />
-                 </div>
-               </div>
-               <div className="space-y-6">
-                 <div className="space-y-1">
-                   <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('رقم الهاتف للتواصل', 'Téléphone Contact')}</label>
-                   <input value={config.contact.phone} onChange={e => setConfig({...config, contact: {...config.contact, phone: e.target.value}})} className="w-full p-4 bg-gray-50 rounded-2xl border-gray-100" />
-                 </div>
-                 <div className="space-y-1">
-                   <label className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t('البريد الإلكتروني', 'Email')}</label>
-                   <input value={config.contact.email} onChange={e => setConfig({...config, contact: {...config.contact, email: e.target.value}})} className="w-full p-4 bg-gray-50 rounded-2xl border-gray-100" />
-                 </div>
-               </div>
             </div>
           </div>
         )}
